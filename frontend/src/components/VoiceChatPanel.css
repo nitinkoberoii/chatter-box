@@ -1,0 +1,259 @@
+.voice-chat-overlay {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.voice-chat-panel {
+  background: white;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  padding: 2rem;
+  width: 350px;
+  max-width: calc(100vw - 4rem);
+}
+
+.voice-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.voice-header h3 {
+  font-size: 1.25rem;
+  color: var(--gray-800);
+}
+
+.close-voice-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--gray-400);
+  cursor: pointer;
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.close-voice-btn:hover {
+  color: var(--gray-700);
+}
+
+.caller-info {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.caller-avatar {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--violet-primary), var(--violet-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: 700;
+  box-shadow: 0 8px 16px rgba(139, 92, 246, 0.3);
+}
+
+.caller-avatar.pulsing {
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+  0%, 100% {
+    box-shadow: 0 8px 16px rgba(139, 92, 246, 0.3), 0 0 0 0 rgba(139, 92, 246, 0.4);
+  }
+  50% {
+    box-shadow: 0 8px 16px rgba(139, 92, 246, 0.3), 0 0 0 20px rgba(139, 92, 246, 0);
+  }
+}
+
+.caller-name {
+  font-size: 1.5rem;
+  color: var(--gray-800);
+  margin-bottom: 0.5rem;
+}
+
+.call-status {
+  color: var(--violet-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  animation: pulse 2s infinite;
+}
+
+.call-duration {
+  color: var(--gray-600);
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: 'Courier New', monospace;
+}
+
+.voice-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.voice-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 90px;
+}
+
+.voice-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-icon {
+  font-size: 2rem;
+}
+
+.btn-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.accept-btn {
+  background: var(--success);
+  color: white;
+}
+
+.accept-btn:hover {
+  background: #059669;
+}
+
+.reject-btn {
+  background: var(--error);
+  color: white;
+}
+
+.reject-btn:hover {
+  background: #dc2626;
+}
+
+.mute-btn {
+  background: var(--violet-pale);
+  color: var(--violet-dark);
+}
+
+.mute-btn:hover {
+  background: var(--violet-light);
+  color: white;
+}
+
+.muted-btn {
+  background: var(--error);
+  color: white;
+}
+
+.muted-btn:hover {
+  background: #dc2626;
+}
+
+.end-btn {
+  background: var(--error);
+  color: white;
+}
+
+.end-btn:hover {
+  background: #dc2626;
+}
+
+/* Audio Visualizer */
+.audio-visualizer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  height: 60px;
+}
+
+.wave-bar {
+  width: 6px;
+  background: var(--violet-primary);
+  border-radius: 3px;
+  animation: wave 1s ease-in-out infinite;
+}
+
+.wave-bar:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.wave-bar:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.wave-bar:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.wave-bar:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.wave-bar:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+@keyframes wave {
+  0%, 100% {
+    height: 10px;
+  }
+  50% {
+    height: 40px;
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .voice-chat-overlay {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+  }
+
+  .voice-chat-panel {
+    width: 100%;
+    max-width: none;
+  }
+
+  .caller-avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 2.5rem;
+  }
+
+  .voice-controls {
+    flex-wrap: wrap;
+  }
+
+  .voice-btn {
+    min-width: 80px;
+  }
+}

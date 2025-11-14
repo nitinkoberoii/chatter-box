@@ -1,0 +1,142 @@
+.file-upload-modal {
+  max-width: 500px;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.modal-header h3 {
+  font-size: 1.5rem;
+  color: var(--gray-800);
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--gray-400);
+  cursor: pointer;
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: var(--gray-700);
+}
+
+.drop-zone {
+  border: 2px dashed var(--gray-300);
+  border-radius: 1rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: var(--gray-50);
+}
+
+.drop-zone:hover {
+  border-color: var(--violet-primary);
+  background: var(--violet-pale);
+}
+
+.drop-zone.drag-active {
+  border-color: var(--violet-primary);
+  background: var(--violet-pale);
+  transform: scale(1.02);
+}
+
+.file-input-hidden {
+  display: none;
+}
+
+.upload-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.upload-text {
+  font-size: 1.1rem;
+  color: var(--gray-700);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.upload-subtext {
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  margin-bottom: 1rem;
+}
+
+.upload-limit {
+  font-size: 0.8rem;
+  color: var(--gray-400);
+}
+
+.selected-file {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.file-preview {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.file-icon-large {
+  font-size: 3rem;
+}
+
+.file-details {
+  flex: 1;
+  text-align: left;
+}
+
+.file-name {
+  font-weight: 600;
+  color: var(--gray-800);
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+  word-break: break-all;
+}
+
+.file-size {
+  font-size: 0.85rem;
+  color: var(--gray-500);
+}
+
+.remove-file-btn {
+  background: var(--error);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.remove-file-btn:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: flex-end;
+}
+
+.modal-actions .btn {
+  padding: 0.6rem 1.5rem;
+}

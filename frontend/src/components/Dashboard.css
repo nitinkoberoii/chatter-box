@@ -1,0 +1,252 @@
+.dashboard {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--gray-50);
+}
+
+.dashboard-header {
+  background: white;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--gray-200);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-mini {
+  font-size: 1.75rem;
+}
+
+.dashboard-header h1 {
+  font-size: 1.5rem;
+  color: var(--violet-primary);
+  font-weight: 700;
+}
+
+.connection-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.connection-status.connected {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.connection-status.disconnected {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.connection-status.connected .status-dot {
+  background: var(--success);
+}
+
+.connection-status.disconnected .status-dot {
+  background: var(--error);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.username {
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.logout-btn {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.9rem;
+}
+
+.dashboard-content {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 350px;
+  background: white;
+  border-right: 1px solid var(--gray-200);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s;
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.sidebar-header h2 {
+  font-size: 1.25rem;
+  color: var(--gray-800);
+}
+
+.online-count {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gray-600);
+  font-size: 0.85rem;
+}
+
+.count-badge {
+  background: var(--violet-primary);
+  color: white;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.search-container {
+  position: relative;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  border: 2px solid var(--gray-200);
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: var(--violet-primary);
+  box-shadow: 0 0 0 3px var(--violet-pale);
+}
+
+.search-icon {
+  position: absolute;
+  right: 2.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+
+/* Chat Area */
+.chat-area {
+  flex: 1;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.no-chat-selected {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+}
+
+.empty-state {
+  text-align: center;
+  max-width: 400px;
+  padding: 2rem;
+}
+
+.empty-icon {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.empty-state h3 {
+  color: var(--gray-700);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+  color: var(--gray-500);
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-header {
+    padding: 1rem;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 1.25rem;
+  }
+  
+  .connection-status {
+    display: none;
+  }
+  
+  .sidebar {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 10;
+  }
+  
+  .sidebar.hidden-mobile {
+    transform: translateX(-100%);
+  }
+  
+  .chat-area {
+    width: 100%;
+  }
+  
+  .chat-area.hidden-mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-info .username {
+    display: none;
+  }
+  
+  .logout-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+  }
+}
